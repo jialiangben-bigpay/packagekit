@@ -9,7 +9,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "PackageKit",
-            targets: ["PackageKit"]),
+            targets: ["PackageKit","App","Flutter"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -21,8 +21,7 @@ let package = Package(
         .target(
             name: "PackageKit",
             dependencies: []),
-        .testTarget(
-            name: "PackageKitTests",
-            dependencies: ["PackageKit"]),
+        .binaryTarget(name: "App", path: "Frameworks/App.xcframework"),
+        .binaryTarget(name: "Flutter", path: "Frameworks/Flutter.xcframework")
     ]
 )
